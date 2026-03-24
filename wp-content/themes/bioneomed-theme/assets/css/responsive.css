@@ -1,0 +1,26 @@
+/* BioNeoMed Responsive Styles */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .site-header nav {
+        display: none;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .stats-grid,
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 1.4rem;
+    }
+}

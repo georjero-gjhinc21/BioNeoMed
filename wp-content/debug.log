@@ -1,0 +1,60 @@
+[23-Mar-2026 22:35:55 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>CREATE TABLE IF NOT EXISTS wp_bioneomed_analytics (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+            metric_type VARCHAR(50) NOT NULL,
+            metric_value VARCHAR(255) NOT NULL,
+            metric_date DATE NOT NULL,
+            additional_data JSON,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id),
+            KEY idx_metric_type (metric_type),
+            KEY idx_metric_date (metric_date)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4229 in Function <code>handle_error</code>. Error message was: MySQL field type cannot be translated to SQLite: json.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /home/runner/workspace/wp-content/plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(560): WP_SQLite_Translator->get_error_message()
+#1 /home/runner/workspace/wp-content/plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(466): WP_SQLite_DB->_do_query('CREATE TABLE IF...')
+#2 /home/runner/workspace/wp-admin/includes/upgrade.php(3324): WP_SQLite_DB->query('CREATE TABLE IF...')
+#3 /home/runner/workspace/wp-content/plugins/bioneomed-core/includes/class-database.php(58): dbDelta(Array)
+#4 /home/runner/workspace/wp-content/plugins/bioneomed-core/bioneomed-core.php(85): BioNeoMed_Database::create_tables()
+#5 /home/runner/workspace/wp-includes/class-wp-hook.php(341): BioNeoMed_Core->activate(false)
+#6 /home/runner/workspace/wp-includes/class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#7 /home/runner/workspace/wp-includes/plugin.php(522): WP_Hook->do_action(Array)
+#8 /home/runner/workspace/wp-admin/includes/plugin.php(703): do_action('activate_bioneo...', false)
+#9 phar:///tmp/wp-cli.phar/vendor/wp-cli/extension-command/src/Plugin_Command.php(386): activate_plugin('bioneomed-core/...', '', false)
+#10 [internal function]: Plugin_Command->activate(Array, Array)
+#11 phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/CommandFactory.php(100): call_user_func(Array, Array, Array)
+#12 [internal function]: WP_CLI\Dispatcher\CommandFactory::WP_CLI\Dispatcher\{closure}(Array, Array)
+#13 phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/Subcommand.php(497): call_user_func(Object(Closure), Array, Array)
+#14 phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(470): WP_CLI\Dispatcher\Subcommand->invoke(Array, Array, Array)
+#15 phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(493): WP_CLI\Runner->run_command(Array, Array)
+#16 phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1295): WP_CLI\Runner->run_command_and_exit()
+#17 phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php(28): WP_CLI\Runner->start()
+#18 phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/bootstrap.php(84): WP_CLI\Bootstrap\LaunchRunner->process(Object(WP_CLI\Bootstrap\BootstrapState))
+#19 phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/wp-cli.php(35): WP_CLI\bootstrap()
+#20 phar:///tmp/wp-cli.phar/php/boot-phar.php(20): include('phar:///tmp/wp-...')
+#21 /tmp/wp-cli.phar(4): include('phar:///tmp/wp-...')
+#22 {main}</pre>
+ for query CREATE TABLE IF NOT EXISTS wp_bioneomed_analytics (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+            metric_type VARCHAR(50) NOT NULL,
+            metric_value VARCHAR(255) NOT NULL,
+            metric_date DATE NOT NULL,
+            additional_data JSON,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id),
+            KEY idx_metric_type (metric_type),
+            KEY idx_metric_date (metric_date)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by include('phar:///tmp/wp-cli.phar/php/boot-phar.php'), include('phar:///tmp/wp-cli.phar/vendor/wp-cli/wp-cli/php/wp-cli.php'), WP_CLI\bootstrap, WP_CLI\Bootstrap\LaunchRunner->process, WP_CLI\Runner->start, WP_CLI\Runner->run_command_and_exit, WP_CLI\Runner->run_command, WP_CLI\Dispatcher\Subcommand->invoke, call_user_func, WP_CLI\Dispatcher\CommandFactory::WP_CLI\Dispatcher\{closure}, call_user_func, Plugin_Command->activate, activate_plugin, do_action('activate_bioneomed-core/bioneomed-core.php'), WP_Hook->do_action, WP_Hook->apply_filters, BioNeoMed_Core->activate, BioNeoMed_Database::create_tables, dbDelta, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[23-Mar-2026 22:37:17 UTC] Automatic updates starting...
+[23-Mar-2026 22:37:17 UTC] Automatic updates complete.
