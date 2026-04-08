@@ -818,14 +818,12 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    if (url.pathname === '/' || url.pathname === '/index.html' || url.pathname === '') {
-      return new Response(HTML, {
-        headers: {
-          'Content-Type': 'text/html; charset=utf-8',
-          'Cache-Control': 'public, max-age=3600'
-        }
-      });
-    }
-    return new Response('Not Found', { status: 404 });
+    return new Response(HTML, {
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+        'Pragma': 'no-cache'
+      }
+    });
   }
 };
